@@ -22,11 +22,11 @@ function draw() {
   frameRate(30);
   var waveHeight = amp.getLevel();
 
-  if (waveHeight < 0.3){
+  if (waveHeight < 0.35){
     calmMind()
   }
   else{
-    disturbedMind()  
+    disturbedMind2()  
   }
   // if (calmSelection){
   //   calmMind()
@@ -78,16 +78,39 @@ function disturbedMind(){
       strokeWeight(2);
       smooth();
       if (i%2 == 0){
-        stroke(220);
-        bezier(10, random(i*25), 200, i*25+y, 300, i*25-y, windowWidth/2-10, random(i*25));
+        stroke(255,0,0);
+        bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
         // bezier(10, random(i*25), random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, random(i*25));
         // bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
       }
       else{
-        stroke(255);
-        bezier(10, random(i*25), 200, i*25+y, 300, i*25-y, windowWidth/2-10, random(i*25));
-        // bezier(10, i*25, random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, i*25);
+        stroke(220);
+        bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
+        // bezier(10, random(i*25), random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, random(i*25));
         // bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
+      }
+    }
+    else{
+      y = -500;
+    } 
+  } 
+}
+
+function disturbedMind2(){
+  y = y +1;
+  for (let i = 0; i < windowHeight; i++) {
+    if (y < 500){
+      noFill();
+      strokeWeight(2);
+      smooth();
+      if (i%2 == 0){
+        stroke(255,0,0);
+        // bezier(10, i*25, random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, i*25);
+        bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
+      }
+      else{
+        stroke(255,0,0);
+        bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
       }
     }
     else{
