@@ -12,12 +12,11 @@ function draw() {
     noFill();
     stroke(255);
     // frameRate(60);
-    if (y < 100){
-      bezier(10, i*25, 200, i*25+y, 300, i*25, windowWidth/2-10, i*25);
+    if (y < 500){
+      bezier(10, i*25, 200, random(i*25+y, 1), 300, i*25, windowWidth/2-10, i*25);
     }
     else{
-      bezier(10, i*25, 200, i*25-y, 300, i*25, windowWidth/2-10, i*25);
-      // y = y-1;
+      y = -10;
     }
     
   }
