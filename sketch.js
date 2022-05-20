@@ -26,7 +26,7 @@ function draw() {
     calmMind()
   }
   else{
-    disturbedMind2()  
+    disturbedMind()  
   }
   // if (calmSelection){
   //   calmMind()
@@ -79,13 +79,13 @@ function disturbedMind(){
       smooth();
       if (i%2 == 0){
         stroke(255,0,0);
-        bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
-        // bezier(10, random(i*25), random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, random(i*25));
+        // bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
+        bezier(10, random(i*25), random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, random(i*25));
         // bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
       }
       else{
         stroke(220);
-        bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
+        // bezier(10, i*25, random(200, 250), random(i*25+y, (i*25+y+70)), random(300, 350), random(i*25-y, (i*25-y+70)), windowWidth/2-10, i*25);
         // bezier(10, random(i*25), random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, random(i*25));
         // bezier(10, i*25, 200, i*25+y, 300, i*25-y, windowWidth/2-10, i*25);
       }
