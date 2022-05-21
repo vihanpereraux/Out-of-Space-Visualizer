@@ -15,8 +15,8 @@ function setup(){
     // (x1, y1) = (0,0)
     // (x2, y2) = (6,0)
     // (x3, y3) = (3,6)
-    x1 = 450; y1 = 0;
-    x2 = 550+x1; y2 = 0;
+    x1 = random(200, 300); y1 = 0;
+    x2 = random(300, 400)+x1; y2 = 0;
     x3 = ((x2-x1)/2)+x1; y3 = ((x2-x1)/2)*tan(60); // ((x2-x1)/2)+x1 -- ((x2-x1)/2)*tan(60) 
 
     d = (((x2-x1)/2)/sin(30))/2;
@@ -71,7 +71,18 @@ function draw(){
 function keyPressed(){
     if(value === 0){
         clear();
-        counter = 0;
+        createCanvas(windowWidth, windowHeight);
         background(0);
+        angleMode(DEGREES);
+        counter = 0;
+
+        x1 = random(200, 300); y1 = 0;
+        x2 = random(300, 400)+x1; y2 = 0;
+        x3 = ((x2-x1)/2)+x1; y3 = ((x2-x1)/2)*tan(60); // ((x2-x1)/2)+x1 -- ((x2-x1)/2)*tan(60) 
+
+        d = (((x2-x1)/2)/sin(30))/2;
+        k = sin(30) + d;
+        xX = Math.round((x2-x1)/2 + k);
+        yY = Math.round(((x2-x1)/2)/sin(30));
     }
 }
