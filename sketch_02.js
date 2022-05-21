@@ -35,10 +35,18 @@ function setup(){
 }
 
 function draw(){
-    frameRate(20);
-    noFill();
-    stroke(255);
-    strokeWeight(0.5);
+    frameRate(15);
+    if(amp.getLevel() > 0.3){
+        noFill();
+        stroke(0);
+        strokeWeight(1);
+    }
+    else{
+        noFill();
+        stroke(255);
+        strokeWeight(1);
+    }
+    // fill(random(0,255), random(0,255), random(0,255));
     translate(0, 0);
     angleMode(DEGREES);
     // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
@@ -49,9 +57,9 @@ function draw(){
     console.log(xX, yY);
     console.log(amp.getLevel());
 
-    if(counter < 11){
-        if(amp.getLevel() > 5){
-            stroke(random(100, 255), 0, 0);
+    if(counter < 15){
+        if(amp.getLevel() > 0.3){
+            stroke(random(150, 255), 0, 0);
         }
         else{
             stroke(255);
@@ -61,9 +69,9 @@ function draw(){
         line(x3, y3, random(0,150), windowHeight);
     }
 
-    if(counter < 11){
-        if(amp.getLevel() > 5){
-            stroke(random(100, 255), 0, 0);
+    if(counter < 15){
+        if(amp.getLevel() > 0.3){
+            stroke(random(150, 255), 0, 0);
         }
         else{
             stroke(255);
@@ -73,9 +81,9 @@ function draw(){
         line(x1, y1, random(300,450), windowHeight);
     }
 
-    if(counter < 11){
-        if(amp.getLevel() > 5){
-            stroke(random(100, 255), 0, 0);
+    if(counter < 15){
+        if(amp.getLevel() > 0.3){
+            stroke(random(150, 255), 0, 0);
         }
         else{
             stroke(255);
@@ -85,9 +93,9 @@ function draw(){
         line(x2, y2, random(600,650), windowHeight);
     }
 
-    if(counter < 11){
-        if(amp.getLevel() > 5){
-            stroke(random(100, 255), 0, 0);
+    if(counter < 15){
+        if(amp.getLevel() > 0.3){
+            stroke(random(150, 255), 0, 0);
         }
         else{
             stroke(255);
@@ -102,8 +110,8 @@ function hhh(){
     if(value === 0){
         clear();
         createCanvas(windowWidth, windowHeight);
-        if(amp.getLevel() > 0.35){
-            background(random(50, 70), 0, 0);
+        if(amp.getLevel() > 0.3){
+            background(255);
         }
         else{
             background(0);
@@ -133,5 +141,18 @@ window.setInterval(function() {
         r = 0, g = 0, b = 0;
     }
     hhh();
-}, 350);
+}, 450);
 
+
+// function setup(){
+//     createCanvas(500, 500);
+//     background(255, 0, 0);
+// }
+
+// function draw(){
+//     noFill();
+//     stroke(0);
+//     strokeWeight(2);
+//     translate(10,10)
+//     bezier(0, 0, 180, 100, 250, 200, 500, 500);
+// }
