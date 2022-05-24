@@ -6,9 +6,11 @@ var d;
 var k;
 var amp;
 var r, g, b;
+var waveLimit;
+var numOfStrings;
 
 function preload(){
-    sound = loadSound("Glitch.mp3");
+    sound = loadSound("Glitch03.mp3");
 }
 
 function setup(){
@@ -35,8 +37,11 @@ function setup(){
 }
 
 function draw(){
-    frameRate(15);
-    if(amp.getLevel() > 0.3){
+    frameRate(120);
+    waveLimit = 0.2;
+    numOfStrings = 6;
+
+    if(amp.getLevel() > waveLimit){
         noFill();
         stroke(0);
         strokeWeight(1);
@@ -57,8 +62,8 @@ function draw(){
     console.log(xX, yY);
     console.log(amp.getLevel());
 
-    if(counter < 15){
-        if(amp.getLevel() > 0.3){
+    if(counter < numOfStrings){
+        if(amp.getLevel() > waveLimit){
             stroke(random(150, 255), 0, 0);
         }
         else{
@@ -66,11 +71,11 @@ function draw(){
         }
         strokeWeight(1);
         translate(0,0);
-        line(x3, y3, random(0,150), windowHeight);
+        line(x3, y3, random(-100,150), windowHeight);
     }
 
-    if(counter < 15){
-        if(amp.getLevel() > 0.3){
+    if(counter < numOfStrings){
+        if(amp.getLevel() > waveLimit){
             stroke(random(150, 255), 0, 0);
         }
         else{
@@ -81,8 +86,8 @@ function draw(){
         line(x1, y1, random(300,450), windowHeight);
     }
 
-    if(counter < 15){
-        if(amp.getLevel() > 0.3){
+    if(counter < numOfStrings){
+        if(amp.getLevel() > waveLimit){
             stroke(random(150, 255), 0, 0);
         }
         else{
@@ -90,11 +95,11 @@ function draw(){
         }
         strokeWeight(1);
         translate(0,0);
-        line(x2, y2, random(600,650), windowHeight);
+        line(x2, y2, random(windowWidth-300,windowWidth-100), windowHeight);
     }
 
-    if(counter < 15){
-        if(amp.getLevel() > 0.3){
+    if(counter < numOfStrings){
+        if(amp.getLevel() > waveLimit){
             stroke(random(150, 255), 0, 0);
         }
         else{
@@ -102,7 +107,7 @@ function draw(){
         }
         strokeWeight(1);
         translate(0,0);
-        line(xX, yY, random(800,900), windowHeight);
+        line(xX, yY, random(windowWidth, windowWidth*2), random(windowHeight-300, windowHeight-250));
     }
 }
 
@@ -110,7 +115,7 @@ function hhh(){
     if(value === 0){
         clear();
         createCanvas(windowWidth, windowHeight);
-        if(amp.getLevel() > 0.3){
+        if(amp.getLevel() > waveLimit){
             background(255);
         }
         else{
@@ -120,7 +125,7 @@ function hhh(){
         counter = 0;
 
         x1 = random(0,windowWidth*.75); y1 = random(0);
-        x2 = random(100, 300)+x1; y2 = random(0);
+        x2 = random(100, 250)+x1; y2 = random(0);
         x3 = ((x2-x1)/2)+x1; y3 = ((x2-x1)/2)*tan(60); // ((x2-x1)/2)+x1 -- ((x2-x1)/2)*tan(60) 
 
         d = (((x2-x1)/2)/sin(30))/2;
@@ -141,7 +146,7 @@ window.setInterval(function() {
         r = 0, g = 0, b = 0;
     }
     hhh();
-}, 450);
+}, 260);
 
 
 // function setup(){
