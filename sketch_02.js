@@ -38,8 +38,8 @@ function setup(){
 
 function draw(){
     frameRate(120);
-    waveLimit = 0.2;
-    numOfStrings = 6;
+    waveLimit = 0.19;
+    numOfStrings = 5;
 
     if(amp.getLevel() > waveLimit){
         noFill();
@@ -56,11 +56,36 @@ function draw(){
     angleMode(DEGREES);
     // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
     triangle(x2, y2, x1, y1, x3, y3);
+    line(x1, y1, (x2-x1)*0.75+x1, y3/2);
+    line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight)
+    // triangle((x2-x1)/2+x1, 0, (x2-x1)*0.75+x1, y3/2, (x2-x1)/4+x1, y3/2);
 
     counter ++; 
     console.log(counter);
     console.log(xX, yY);
     console.log(amp.getLevel());
+
+    if(true){
+        strokeWeight(0.1);
+        stroke(255);
+        for (let i = 1; i < windowWidth; i++) {
+            let beamSpace = i*40;
+            if(beamSpace < windowWidth){
+                line(beamSpace, 0, beamSpace, windowHeight);
+            }
+        }
+    }
+    if(amp.getLevel() > waveLimit){
+        strokeWeight(1);
+        stroke(0);
+        circle(x3, y3, amp.getLevel()*500);
+    }
+    else{
+        strokeWeight(0.4);
+        stroke(255);
+        circle(x3, y3, amp.getLevel()*700);
+    }
 
     if(counter < numOfStrings){
         if(amp.getLevel() > waveLimit){
@@ -71,7 +96,7 @@ function draw(){
         }
         strokeWeight(1);
         translate(0,0);
-        line(x3, y3, random(-100,150), windowHeight);
+        line(x3, y3, random(-120), random(windowHeight, windowHeight-300));
     }
 
     if(counter < numOfStrings){
