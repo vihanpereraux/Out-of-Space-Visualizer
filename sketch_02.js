@@ -16,7 +16,7 @@ function preload(){
 function setup(){
     createCanvas(windowWidth, windowHeight);
     background(0);
-    sound.play();
+    // sound.play();
     amp = new p5.Amplitude();
     angleMode(DEGREES);
     counter = 0;
@@ -38,7 +38,7 @@ function setup(){
 
 function draw(){
     frameRate(120);
-    waveLimit = 0.19;
+    waveLimit = 0.21;
     numOfStrings = 5;
 
     if(amp.getLevel() > waveLimit){
@@ -65,14 +65,20 @@ function draw(){
     console.log(counter);
     console.log(xX, yY);
     console.log(amp.getLevel());
-
+    
     if(true){
-        strokeWeight(0.1);
-        stroke(255);
         for (let i = 1; i < windowWidth; i++) {
+            strokeWeight(0.1/2);
             let beamSpace = i*40;
             if(beamSpace < windowWidth){
-                line(beamSpace, 0, beamSpace, windowHeight);
+                if(amp.getLevel() < waveLimit){
+                    stroke(255);
+                    line(beamSpace, 0, beamSpace, windowHeight);
+                }
+                else{
+                    stroke(255, 0, 0);
+                    line(beamSpace, 0, beamSpace, windowHeight);
+                }
             }
         }
     }
@@ -136,7 +142,7 @@ function draw(){
     }
 }
 
-function hhh(){
+function resetCanvas(){
     if(value === 0){
         clear();
         createCanvas(windowWidth, windowHeight);
@@ -160,6 +166,10 @@ function hhh(){
     }
 }
 
+function keyPressed(){
+    sound.play();
+}
+
 
 window.setInterval(function() {
     if(amp.getLevel() > 0.35){
@@ -170,7 +180,7 @@ window.setInterval(function() {
     else{
         r = 0, g = 0, b = 0;
     }
-    hhh();
+    resetCanvas();
 }, 260);
 
 
