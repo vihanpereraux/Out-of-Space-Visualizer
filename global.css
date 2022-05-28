@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+/* 
+    Font - Montserrat
+    Regular - 400 
+    Medium - 500
+    SemiBold - 600
+    Bold - 700
+*/
+
+@font-face {
+    font-family: DigitalSeven;
+    src: url(assets/fonts/digital7.ttf);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    overflow-x: hidden;
+    font-family: Montserrat !important;
+}

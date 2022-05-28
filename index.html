@@ -5,7 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UAL Visualizer</title>
+  
   <!-- custom stylings -->
+  <link rel="stylesheet" href="global.css">
   <!-- <link rel="stylesheet" type="text/css" href="visulaizer_one_styles.css"> -->
   <link rel="stylesheet" type="text/css" href="visulaizer_two_styles.css">
   
@@ -18,8 +20,150 @@
 </head>
 
 <body>
+  <div class="accordion" id="mainControllerAccordian">
+    <div class="accordion-item">
+      
+      <h2 class="accordion-header" id="panelsStayOpen-controllersHeading">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          CONTROLLERS
+        </button>
+      </h2>
+      
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-controllersHeading">
+        <div class="accordion-body">
+          
+          <!-- variables panel -->
+          <div class="accordion-item">
+            
+            <h2 class="accordion-header" id="panelsStayOpen-varaiblesPanelHeading">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-varaiblesPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                Variables Panel
+              </button>
+            </h2>
+
+            <div id="panelsStayOpen-varaiblesPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-varaiblesPanelHeading">
+              <div class="accordion-body variables-accordian-accordion-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="variables-panel-triangle-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Triangle</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="traiangleSkeltonCheck">
+                          <label class="form-check-label variables-panel-label ps-2" for="traiangleSkeltonCheck">
+                            Triangle skeleton 
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="traiangleSkeltonWeight" class="form-label variables-panel-label-v2">Triangle skeleton weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="traiangleSkeltonWeight" value="20">
+                        </div>
+                      </div>
+
+                      <div id="variables-panel-inner-lines-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Inner Lines</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="innerLinesCheck">
+                          <label class="form-check-label variables-panel-label ps-2" for="innerLinesCheck">
+                            Inner lines
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="innerLinesWeight" class="form-label variables-panel-label-v2">Inner lines weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="innerLinesWeight" value="20">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="variables-panel-circles-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Circles</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="circlesGroupCheck">
+                          <label class="form-check-label variables-panel-label ps-2" for="circlesGroupCheck">
+                            Circles group 
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="circlesRadius" class="form-label variables-panel-label-v2">Circle radius</label>
+                          <input type="number" class="form-control variables-panel-input" id="circlesRadius" value="20">
+                        </div>
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="circleBorderWeight" class="form-label variables-panel-label-v2">Circle border weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="circleBorderWeight" value="20">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      
+                    </div>
+                    
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- colors panel -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-colorsPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                Colors Panel
+              </button>
+            </h2>
+            <div id="panelsStayOpen-colorsPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+
+          <!-- music panel -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-musicPanelHeading">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-musicPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                Music Panel
+              </button>
+            </h2>
+            <div id="panelsStayOpen-musicPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-musicPanelHeading">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="visualizer_two.js"></script>
-</body>
 
+  <!-- Bootstrap JS bundle v5.x -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
 </html>
