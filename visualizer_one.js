@@ -4,6 +4,7 @@ var disturbedSelection = false;
 var sound;
 var amp;
 
+
 function preload(){
   sound = loadSound("Glitch.mp3")
 }
