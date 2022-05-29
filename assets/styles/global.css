@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: DigitalSeven;
-    src: url(assets/fonts/digital7.ttf);
+    src: url(../fonts/digital7.ttf);
 }
 
 html, body {
@@ -18,4 +18,12 @@ html, body {
     background: black;
     overflow-x: hidden;
     font-family: Montserrat !important;
+}
+
+body::-webkit-scrollbar {
+    display: none !important;
+}
+body {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }

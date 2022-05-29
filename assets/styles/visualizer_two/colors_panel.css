@@ -1,0 +1,52 @@
+/* general properties */
+.colors-panel-accordion-body{
+    background-color: #101010;
+    padding-bottom: 55px !important;
+    padding-top: 50px !important;
+}
+
+.label-background{
+    background-color: black;
+    text-align: center;
+    padding-top: 11px;
+    padding-bottom: 4px;
+}
+.label-background h6{
+    color: white;
+    text-transform: uppercase;
+}
+.colors-panel-label-v2{
+    color: white;
+    font-size: 14px;
+    margin-top: 25px;
+    font-weight: 700;
+}
+.colors-panel-input{
+    margin-top: 5px;
+    font-size: 28px !important;
+    text-align: center;
+    background-color: black !important;
+    font-family: DigitalSeven !important;
+    color: #46E41F !important;
+    font-weight: 500;
+    border: none !important;
+    letter-spacing: 2.5px;
+    height: 45px;
+    cursor: pointer;
+}
+input[type="color"] {
+	-webkit-appearance: none;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+.colors-panel-input:focus{
+    box-shadow: none !important;
+}
+/* end of general properties */
+
+/* front lines color properties */
+#colors-panel-front-lines-color-wrapper{
+    margin-top: 40px;
+}
+/* end of front lines color properties */

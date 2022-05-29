@@ -1,0 +1,27 @@
+canvas{
+    display: block;
+    transform: rotate(180deg);
+}
+
+.controllers-accordion{
+    background-color: #101010;
+    outline: none;
+    border: none;
+    box-shadow: none !important;
+}
+.custom-accordion-header{
+    background-color: #101010 !important;
+}
+.custom-accordion-header h4{
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;
+    text-decoration: none !important;
+}
+.custom-accordion-header:focus{
+    box-shadow: none !important;
+}
+.controllers-accordion-body{
+    background-color: #101010;
+}
+  
