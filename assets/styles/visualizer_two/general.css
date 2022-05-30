@@ -17,6 +17,7 @@ canvas{
     font-weight: 700;
     margin-top: 10px;
     text-decoration: none !important;
+    text-transform: uppercase;
 }
 .custom-accordion-header:focus{
     box-shadow: none !important;

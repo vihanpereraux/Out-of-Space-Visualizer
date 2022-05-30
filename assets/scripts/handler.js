@@ -1,4 +1,9 @@
-// var traiangleSkeltonWeight = document.getElementById("traiangleSkeltonWeight").value;
+window.onload = function(){
+    let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
+    document.getElementById("traiangleSkeltonWeight").value = traiangleSkeltonWeight;
+};
+
+
 localStorage.setItem("BgColor", '#000000');
 localStorage.setItem("traiangleSkeltonWeight", 1);
 localStorage.setItem("innerLinesWeight", 1);
@@ -7,8 +12,8 @@ localStorage.setItem("circlesRadius", 500);
 localStorage.setItem("outerLineWeight", 1);
 localStorage.setItem("frontLinesWeight", 0.1/2);
 
-localStorage.setItem("setOneCoordinatesStart", 0);
-localStorage.setItem("setOneCoordinatesEnd", -120);
+localStorage.setItem("setOneCoordinatesStart", -120);
+localStorage.setItem("setOneCoordinatesEnd", 0);
 
 localStorage.setItem("setTwoCoordinatesStart", 300);
 localStorage.setItem("setTwoCoordinatesEnd", 450);
@@ -16,5 +21,5 @@ localStorage.setItem("setTwoCoordinatesEnd", 450);
 localStorage.setItem("setThreeCoordinatesStart", 600);
 localStorage.setItem("setThreeCoordinatesEnd", 800);
 
-localStorage.setItem("setFourCoordinatesStart", 1000);
-localStorage.setItem("setFourCoordinatesEnd", 2000);
+localStorage.setItem("setFourCoordinatesStart", 1300);
+localStorage.setItem("setFourCoordinatesEnd", 2600);

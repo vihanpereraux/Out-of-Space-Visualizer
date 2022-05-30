@@ -13,6 +13,7 @@ function preload(){
     sound = loadSound("Glitch03.mp3");
 }
 
+
 function setup(){
     createCanvas(windowWidth, windowHeight);
     background(0);
@@ -36,82 +37,94 @@ function setup(){
     yY = (y3/2);   // Math.round(((x2-x1)/2)/sin(30));
 }
 
+
 function draw(){
     frameRate(120);
     waveLimit = 0.21;
     numOfStrings = 5;
 
+    createTraiangle();
+
+    // logs
+    counter ++; 
+    // console.log(counter);
+    // console.log(xX, yY);
+    // console.log(amp.getLevel());
+    
+    createFrontLines();
+
+    createCircles();
+
+    if(counter < numOfStrings){
+        createAttachments();
+        let setOneCoordinatesStart = int(localStorage.getItem("setOneCoordinatesStart"));
+        let setOneCoordinatesEnd = int(localStorage.getItem("setOneCoordinatesEnd"));
+        line(x3, y3, random(setOneCoordinatesEnd, setOneCoordinatesStart), random(windowHeight, windowHeight-300));
+
+        createAttachments();
+        let setTwoCoordinatesStart = int(localStorage.getItem("setTwoCoordinatesStart"));
+        let setTwoCoordinatesEnd = int(localStorage.getItem("setTwoCoordinatesEnd"));
+        line(x1, y1, random(setTwoCoordinatesStart, setTwoCoordinatesEnd), windowHeight);
+
+        createAttachments();
+        let setThreeCoordinatesStart = int(localStorage.getItem("setThreeCoordinatesStart"));
+        let setThreeCoordinatesEnd = int(localStorage.getItem("setThreeCoordinatesEnd"));
+        line(x2, y2, random(setThreeCoordinatesStart, setThreeCoordinatesEnd), windowHeight);
+
+        createAttachments();
+        let setFourCoordinatesStart = int(localStorage.getItem("setFourCoordinatesStart"));
+        let setFourCoordinatesEnd = int(localStorage.getItem("setFourCoordinatesEnd"));
+        line(xX, yY, random(setFourCoordinatesStart, setFourCoordinatesEnd), random(windowHeight-300, windowHeight-250));
+    }
+}
+
+
+function createTraiangle(){
+    // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
     if(amp.getLevel() > waveLimit){
         noFill();
         stroke(0);
-        strokeWeight(1);
+        let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
+        strokeWeight(traiangleSkeltonWeight);
+        triangle(x2, y2, x1, y1, x3, y3);
     }
     else{
         noFill();
         stroke(255);
-        strokeWeight(1);
+        let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
+        strokeWeight(traiangleSkeltonWeight);
+        triangle(x2, y2, x1, y1, x3, y3);
     }
-    // fill(random(0,255), random(0,255), random(0,255));
     translate(0, 0);
     angleMode(DEGREES);
-    // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
-    triangle(x2, y2, x1, y1, x3, y3);
+    
+    let innerLinesWeight = localStorage.getItem("innerLinesWeight");
+    strokeWeight(innerLinesWeight);
     line(x1, y1, (x2-x1)*0.75+x1, y3/2);
     line(x2, y2, (x2-x1)*0.25+x1, y3/2);
-    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
 
-    counter ++; 
-    console.log(counter);
-    console.log(xX, yY);
-    console.log(amp.getLevel());
-    
-    if(true){
-        for (let i = 1; i < windowWidth; i++) {
-            strokeWeight(0.1/2);
-            let beamSpace = i*40;
-            if(beamSpace < windowWidth){
-                if(amp.getLevel() < waveLimit){
-                    stroke(255);
-                    line(beamSpace, 0, beamSpace, windowHeight);
-                }
-                else{
-                    stroke(255, 0, 0);
-                    line(beamSpace, 0, beamSpace, windowHeight);
-                }
-            }
-        }
-    }
+    let outerLineWeight = localStorage.getItem("outerLineWeight");
+    strokeWeight(outerLineWeight);
+    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+}
+
+
+function createCircles(){
     if(amp.getLevel() > waveLimit){
-        strokeWeight(1);
+        let circleBorderWeight = localStorage.getItem("circleBorderWeight");
+        strokeWeight(circleBorderWeight);
         stroke(0);
-        circle(x3, y3, amp.getLevel()*500);
+        let circlesRadius = localStorage.getItem("circlesRadius");
+        circle(x3, y3, amp.getLevel()*circlesRadius);
     }
     else{
-        strokeWeight(0.4);
+        let circleBorderWeight = localStorage.getItem("circleBorderWeight");
+        strokeWeight( (circleBorderWeight/10)*4 );
         stroke(255);
         circle(x3, y3, amp.getLevel()*700);
     }
-
-    if(counter < numOfStrings){
-        createAttachments();
-        line(x3, y3, random(-120), random(windowHeight, windowHeight-300));
-    }
-
-    if(counter < numOfStrings){
-        createAttachments();
-        line(x1, y1, random(300,450), windowHeight);
-    }
-
-    if(counter < numOfStrings){
-        createAttachments();
-        line(x2, y2, random(windowWidth-300,windowWidth-100), windowHeight);
-    }
-
-    if(counter < numOfStrings){
-        createAttachments();
-        line(xX, yY, random(windowWidth, windowWidth*2), random(windowHeight-300, windowHeight-250));
-    }
 }
+
 
 function createAttachments(){
     if(counter < numOfStrings){
@@ -125,6 +138,26 @@ function createAttachments(){
         translate(0,0);
     }
 }
+
+
+function createFrontLines(){
+    for (let i = 1; i < windowWidth; i++) {
+        let frontLinesWeight = localStorage.getItem("frontLinesWeight");
+        strokeWeight(frontLinesWeight);
+        let beamSpace = i*40;
+        if(beamSpace < windowWidth){
+            if(amp.getLevel() < waveLimit){
+                stroke(255);
+                line(beamSpace, 0, beamSpace, windowHeight);
+            }
+            else{
+                stroke(255, 0, 0);
+                line(beamSpace, 0, beamSpace, windowHeight);
+            }
+        }
+    }
+}
+
 
 function resetCanvas(){
     if(value === 0){
@@ -150,6 +183,7 @@ function resetCanvas(){
         yY = (y3/2);   // Math.round(((x2-x1)/2)/sin(30));
     }
 }
+
 
 function keyPressed(){
     sound.play();
