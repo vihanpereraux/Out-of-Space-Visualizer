@@ -58,8 +58,7 @@ function draw(){
     triangle(x2, y2, x1, y1, x3, y3);
     line(x1, y1, (x2-x1)*0.75+x1, y3/2);
     line(x2, y2, (x2-x1)*0.25+x1, y3/2);
-    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight)
-    // triangle((x2-x1)/2+x1, 0, (x2-x1)*0.75+x1, y3/2, (x2-x1)/4+x1, y3/2);
+    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
 
     counter ++; 
     console.log(counter);
@@ -94,41 +93,27 @@ function draw(){
     }
 
     if(counter < numOfStrings){
-        if(amp.getLevel() > waveLimit){
-            stroke(random(150, 255), 0, 0);
-        }
-        else{
-            stroke(255);
-        }
-        strokeWeight(1);
-        translate(0,0);
+        createAttachments();
         line(x3, y3, random(-120), random(windowHeight, windowHeight-300));
     }
 
     if(counter < numOfStrings){
-        if(amp.getLevel() > waveLimit){
-            stroke(random(150, 255), 0, 0);
-        }
-        else{
-            stroke(255);
-        }
-        strokeWeight(1);
-        translate(0,0);
+        createAttachments();
         line(x1, y1, random(300,450), windowHeight);
     }
 
     if(counter < numOfStrings){
-        if(amp.getLevel() > waveLimit){
-            stroke(random(150, 255), 0, 0);
-        }
-        else{
-            stroke(255);
-        }
-        strokeWeight(1);
-        translate(0,0);
+        createAttachments();
         line(x2, y2, random(windowWidth-300,windowWidth-100), windowHeight);
     }
 
+    if(counter < numOfStrings){
+        createAttachments();
+        line(xX, yY, random(windowWidth, windowWidth*2), random(windowHeight-300, windowHeight-250));
+    }
+}
+
+function createAttachments(){
     if(counter < numOfStrings){
         if(amp.getLevel() > waveLimit){
             stroke(random(150, 255), 0, 0);
@@ -138,7 +123,6 @@ function draw(){
         }
         strokeWeight(1);
         translate(0,0);
-        line(xX, yY, random(windowWidth, windowWidth*2), random(windowHeight-300, windowHeight-250));
     }
 }
 
@@ -150,7 +134,8 @@ function resetCanvas(){
             background(255);
         }
         else{
-            background(0);
+            let bgColor = color(localStorage.getItem("BgColor"));
+            background(bgColor);
         }
         angleMode(DEGREES);
         counter = 0;
@@ -172,27 +157,5 @@ function keyPressed(){
 
 
 window.setInterval(function() {
-    if(amp.getLevel() > 0.35){
-        r = 255;
-        g = 0;
-        b = 0;
-    }
-    else{
-        r = 0, g = 0, b = 0;
-    }
     resetCanvas();
 }, 260);
-
-
-// function setup(){
-//     createCanvas(500, 500);
-//     background(255, 0, 0);
-// }
-
-// function draw(){
-//     noFill();
-//     stroke(0);
-//     strokeWeight(2);
-//     translate(10,10)
-//     bezier(0, 0, 180, 100, 250, 200, 500, 500);
-// }
