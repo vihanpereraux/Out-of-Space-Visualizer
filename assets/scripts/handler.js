@@ -37,25 +37,73 @@ window.onload = function(){
     document.getElementById("setFourCoordinatesStart").value = setFourCoordinatesStart;
     let setFourCoordinatesEnd = localStorage.getItem("setFourCoordinatesEnd");
     document.getElementById("setFourCoordinatesEnd").value = setFourCoordinatesEnd;
-};
+}
 
 
-localStorage.setItem("BgColor", '#000000');
-localStorage.setItem("traiangleSkeltonWeight", 1);
-localStorage.setItem("innerLinesWeight", 1);
-localStorage.setItem("circleBorderWeight", 1);
-localStorage.setItem("circlesRadius", 500);
-localStorage.setItem("outerLineWeight", 1);
-localStorage.setItem("frontLinesWeight", 0.1/2);
+function updateStorage(){
+    let traiangleSkeltonWeight = document.getElementById("traiangleSkeltonWeight").value;
+    localStorage.setItem("traiangleSkeltonWeight", traiangleSkeltonWeight);
 
-localStorage.setItem("setOneCoordinatesStart", -120);
-localStorage.setItem("setOneCoordinatesEnd", 0);
+    let innerLinesWeight = document.getElementById("innerLinesWeight").value;
+    localStorage.setItem("innerLinesWeight", innerLinesWeight);
 
-localStorage.setItem("setTwoCoordinatesStart", 300);
-localStorage.setItem("setTwoCoordinatesEnd", 450);
+    let circleBorderWeight = document.getElementById("circleBorderWeight").value;
+    localStorage.setItem("circleBorderWeight", circleBorderWeight);
 
-localStorage.setItem("setThreeCoordinatesStart", 600);
-localStorage.setItem("setThreeCoordinatesEnd", 800);
+    let circlesRadius = document.getElementById("circlesRadius").value;
+    localStorage.setItem("circlesRadius", circlesRadius);
 
-localStorage.setItem("setFourCoordinatesStart", 1300);
-localStorage.setItem("setFourCoordinatesEnd", 2600);
+    let outerLineWeight = document.getElementById("outerLineWeight").value;
+    localStorage.setItem("outerLineWeight", outerLineWeight);
+    
+    let frontLinesWeight = document.getElementById("frontLinesWeight").value;
+    localStorage.setItem("frontLinesWeight", frontLinesWeight);
+
+    let setOneCoordinatesStart = document.getElementById("setOneCoordinatesStart").value;
+    localStorage.setItem("setOneCoordinatesStart", setOneCoordinatesStart);   
+    let setOneCoordinatesEnd = document.getElementById("setOneCoordinatesEnd").value;
+    localStorage.setItem("setOneCoordinatesEnd", setOneCoordinatesEnd);
+
+    let setTwoCoordinatesStart = document.getElementById("setTwoCoordinatesStart").value;
+    localStorage.setItem("setTwoCoordinatesStart", setTwoCoordinatesStart);   
+    let setTwoCoordinatesEnd = document.getElementById("setTwoCoordinatesEnd").value;
+    localStorage.setItem("setTwoCoordinatesEnd", setTwoCoordinatesEnd);
+
+    let setThreeCoordinatesStart = document.getElementById("setThreeCoordinatesStart").value;
+    localStorage.setItem("setThreeCoordinatesStart", setThreeCoordinatesStart);   
+    let setThreeCoordinatesEnd = document.getElementById("setThreeCoordinatesEnd").value;
+    localStorage.setItem("setThreeCoordinatesEnd", setThreeCoordinatesEnd);
+
+    let setFourCoordinatesStart = document.getElementById("setFourCoordinatesStart").value;
+    localStorage.setItem("setFourCoordinatesStart", setFourCoordinatesStart);   
+    let setFourCoordinatesEnd = document.getElementById("setFourCoordinatesEnd").value;
+    localStorage.setItem("setFourCoordinatesEnd", setFourCoordinatesEnd);
+}   
+
+
+window.setInterval(function() {
+    updateStorage();
+}, 100);
+
+
+function setDefaultValues(){
+    localStorage.setItem("BgColor", '#000000');
+    localStorage.setItem("traiangleSkeltonWeight", 1);
+    localStorage.setItem("innerLinesWeight", 1);
+    localStorage.setItem("circleBorderWeight", 1);
+    localStorage.setItem("circlesRadius", 500);
+    localStorage.setItem("outerLineWeight", 1);
+    localStorage.setItem("frontLinesWeight", 0.1/2);
+
+    localStorage.setItem("setOneCoordinatesStart", -120);
+    localStorage.setItem("setOneCoordinatesEnd", 0);
+
+    localStorage.setItem("setTwoCoordinatesStart", 300);
+    localStorage.setItem("setTwoCoordinatesEnd", 450);
+
+    localStorage.setItem("setThreeCoordinatesStart", 600);
+    localStorage.setItem("setThreeCoordinatesEnd", 800);
+
+    localStorage.setItem("setFourCoordinatesStart", 1300);
+    localStorage.setItem("setFourCoordinatesEnd", 2600);
+}
