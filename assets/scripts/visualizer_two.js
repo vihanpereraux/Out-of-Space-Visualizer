@@ -56,72 +56,98 @@ function draw(){
     createCircles();
 
     if(counter < numOfStrings){
-        createAttachments();
-        let setOneCoordinatesStart = int(localStorage.getItem("setOneCoordinatesStart"));
-        let setOneCoordinatesEnd = int(localStorage.getItem("setOneCoordinatesEnd"));
-        line(x3, y3, random(setOneCoordinatesEnd, setOneCoordinatesStart), random(windowHeight, windowHeight-300));
+        let attachmentSetOneCheck = document.getElementById("attachmentSetOneCheck");
+        if(attachmentSetOneCheck.checked == true ){
+            createAttachments();
+            let setOneCoordinatesStart = int(localStorage.getItem("setOneCoordinatesStart"));
+            let setOneCoordinatesEnd = int(localStorage.getItem("setOneCoordinatesEnd"));
+            line(x3, y3, random(setOneCoordinatesEnd, setOneCoordinatesStart), random(windowHeight, windowHeight-300));
+        }
 
+        let attachmentSetTwoCheck = document.getElementById("attachmentSetTwoCheck");
+        if(attachmentSetTwoCheck.checked == true ){
         createAttachments();
-        let setTwoCoordinatesStart = int(localStorage.getItem("setTwoCoordinatesStart"));
-        let setTwoCoordinatesEnd = int(localStorage.getItem("setTwoCoordinatesEnd"));
-        line(x1, y1, random(setTwoCoordinatesStart, setTwoCoordinatesEnd), windowHeight);
+            let setTwoCoordinatesStart = int(localStorage.getItem("setTwoCoordinatesStart"));
+            let setTwoCoordinatesEnd = int(localStorage.getItem("setTwoCoordinatesEnd"));
+            line(x1, y1, random(setTwoCoordinatesStart, setTwoCoordinatesEnd), windowHeight);
+        }
 
-        createAttachments();
-        let setThreeCoordinatesStart = int(localStorage.getItem("setThreeCoordinatesStart"));
-        let setThreeCoordinatesEnd = int(localStorage.getItem("setThreeCoordinatesEnd"));
-        line(x2, y2, random(setThreeCoordinatesStart, setThreeCoordinatesEnd), windowHeight);
+        let attachmentSetThreeCheck = document.getElementById("attachmentSetThreeCheck");
+        if(attachmentSetThreeCheck.checked == true ){
+            createAttachments();
+            let setThreeCoordinatesStart = int(localStorage.getItem("setThreeCoordinatesStart"));
+            let setThreeCoordinatesEnd = int(localStorage.getItem("setThreeCoordinatesEnd"));
+            line(x2, y2, random(setThreeCoordinatesStart, setThreeCoordinatesEnd), windowHeight);
+        }
 
-        createAttachments();
-        let setFourCoordinatesStart = int(localStorage.getItem("setFourCoordinatesStart"));
-        let setFourCoordinatesEnd = int(localStorage.getItem("setFourCoordinatesEnd"));
-        line(xX, yY, random(setFourCoordinatesStart, setFourCoordinatesEnd), random(windowHeight-300, windowHeight-250));
+        let attachmentSetFourCheck = document.getElementById("attachmentSetFourCheck");
+        if(attachmentSetFourCheck.checked == true ){
+            createAttachments();
+            let setFourCoordinatesStart = int(localStorage.getItem("setFourCoordinatesStart"));
+            let setFourCoordinatesEnd = int(localStorage.getItem("setFourCoordinatesEnd"));
+            line(xX, yY, random(setFourCoordinatesStart, setFourCoordinatesEnd), random(windowHeight-300, windowHeight-250));
+        }
     }
 }
 
 
 function createTraiangle(){
-    // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
-    if(amp.getLevel() > waveLimit){
-        noFill();
-        stroke(0);
-        let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
-        strokeWeight(traiangleSkeltonWeight);
-        triangle(x2, y2, x1, y1, x3, y3);
-    }
-    else{
-        noFill();
-        stroke(255);
-        let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
-        strokeWeight(traiangleSkeltonWeight);
-        triangle(x2, y2, x1, y1, x3, y3);
-    }
-    translate(0, 0);
-    angleMode(DEGREES);
-    
-    let innerLinesWeight = localStorage.getItem("innerLinesWeight");
-    strokeWeight(innerLinesWeight);
-    line(x1, y1, (x2-x1)*0.75+x1, y3/2);
-    line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+    let traiangleSkeltonCheck = document.getElementById("traiangleSkeltonCheck");
+    let innerLinesCheck = document.getElementById("innerLinesCheck");
+    let outerLineCheck = document.getElementById("outerLineCheck");
 
-    let outerLineWeight = localStorage.getItem("outerLineWeight");
-    strokeWeight(outerLineWeight);
-    line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+    if (traiangleSkeltonCheck.checked == true){
+        // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
+        if(amp.getLevel() > waveLimit){
+            noFill();
+            stroke(0);
+            let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
+            strokeWeight(traiangleSkeltonWeight);
+            triangle(x2, y2, x1, y1, x3, y3);
+        }
+        else{
+            noFill();
+            stroke(255);
+            let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
+            strokeWeight(traiangleSkeltonWeight);
+            triangle(x2, y2, x1, y1, x3, y3);
+        }
+        translate(0, 0);
+        angleMode(DEGREES);
+        
+        if(innerLinesCheck.checked == true){
+            let innerLinesWeight = localStorage.getItem("innerLinesWeight");
+            strokeWeight(innerLinesWeight);
+            line(x1, y1, (x2-x1)*0.75+x1, y3/2);
+            line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+        }
+
+        if(outerLineCheck.checked == true){
+            let outerLineWeight = localStorage.getItem("outerLineWeight");
+            strokeWeight(outerLineWeight);
+            line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+        }
+    }
 }
 
 
 function createCircles(){
-    if(amp.getLevel() > waveLimit){
-        let circleBorderWeight = localStorage.getItem("circleBorderWeight");
-        strokeWeight(circleBorderWeight);
-        stroke(0);
-        let circlesRadius = localStorage.getItem("circlesRadius");
-        circle(x3, y3, amp.getLevel()*circlesRadius);
-    }
-    else{
-        let circleBorderWeight = localStorage.getItem("circleBorderWeight");
-        strokeWeight( (circleBorderWeight/10)*4 );
-        stroke(255);
-        circle(x3, y3, amp.getLevel()*700);
+    let circlesGroupCheck = document.getElementById("circlesGroupCheck");
+
+    if(circlesGroupCheck.checked == true){
+        if(amp.getLevel() > waveLimit){
+            let circleBorderWeight = localStorage.getItem("circleBorderWeight");
+            strokeWeight(circleBorderWeight);
+            stroke(0);
+            let circlesRadius = localStorage.getItem("circlesRadius");
+            circle(x3, y3, amp.getLevel()*circlesRadius);
+        }
+        else{
+            let circleBorderWeight = localStorage.getItem("circleBorderWeight");
+            strokeWeight( (circleBorderWeight/10)*4 );
+            stroke(255);
+            circle(x3, y3, amp.getLevel()*700);
+        }
     }
 }
 
@@ -141,18 +167,22 @@ function createAttachments(){
 
 
 function createFrontLines(){
-    for (let i = 1; i < windowWidth; i++) {
-        let frontLinesWeight = localStorage.getItem("frontLinesWeight");
-        strokeWeight(frontLinesWeight);
-        let beamSpace = i*40;
-        if(beamSpace < windowWidth){
-            if(amp.getLevel() < waveLimit){
-                stroke(255);
-                line(beamSpace, 0, beamSpace, windowHeight);
-            }
-            else{
-                stroke(255, 0, 0);
-                line(beamSpace, 0, beamSpace, windowHeight);
+    let frontLinesCheck = document.getElementById("frontLinesCheck");
+    
+    if(frontLinesCheck.checked == true){
+        for (let i = 1; i < windowWidth; i++) {
+            let frontLinesWeight = localStorage.getItem("frontLinesWeight");
+            strokeWeight(frontLinesWeight);
+            let beamSpace = i*40;
+            if(beamSpace < windowWidth){
+                if(amp.getLevel() < waveLimit){
+                    stroke(255);
+                    line(beamSpace, 0, beamSpace, windowHeight);
+                }
+                else{
+                    stroke(255, 0, 0);
+                    line(beamSpace, 0, beamSpace, windowHeight);
+                }
             }
         }
     }
