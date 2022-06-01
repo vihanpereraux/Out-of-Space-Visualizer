@@ -100,14 +100,16 @@ function createTraiangle(){
         // [ (x2, y2), (x1,y1), (x3, y3) ] -> clockwise rotation for points
         if(amp.getLevel() > waveLimit){
             noFill();
-            stroke(0);
+            let highFQStroke = color(localStorage.getItem("triangleHighFrequencyColor"));
+            stroke(highFQStroke);
             let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
             strokeWeight(traiangleSkeltonWeight);
             triangle(x2, y2, x1, y1, x3, y3);
         }
         else{
             noFill();
-            stroke(255);
+            let lowFQStroke = color(localStorage.getItem("triangleLowFrequencyColor"));
+            stroke(lowFQStroke);
             let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
             strokeWeight(traiangleSkeltonWeight);
             triangle(x2, y2, x1, y1, x3, y3);
