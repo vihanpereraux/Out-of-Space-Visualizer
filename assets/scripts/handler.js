@@ -2,7 +2,6 @@
 window.onload = function(){
     updateVariablesPanel();
     updateColorsPanel();
-    updateMusicPanel();
 }
 
 
@@ -41,7 +40,7 @@ function setDefaultValues(){
 
 
     // colors panel properties
-    localStorage.setItem("bgLowFrequencyColor", '#ffffff');
+    localStorage.setItem("bgLowFrequencyColor", '#000000');
     localStorage.setItem("bgHighFrequencyColor", '#FF0000');
 
     localStorage.setItem("triangleLowFrequencyColor", '#ffffff');
