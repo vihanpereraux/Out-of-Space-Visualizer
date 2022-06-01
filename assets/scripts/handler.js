@@ -2,6 +2,7 @@
 window.onload = function(){
     updateVariablesPanel();
     updateColorsPanel();
+    updateMusicPanel();
 }
 
 

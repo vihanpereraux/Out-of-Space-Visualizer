@@ -17,8 +17,12 @@ function preload(){
 function setup(){
     createCanvas(windowWidth, windowHeight);
     background(0);
-    // sound.play();
+
     amp = new p5.Amplitude();
+    window.setInterval(function() {
+        document.getElementById("waveLength").value = ((amp.getLevel())*100).toFixed(5);
+    }, 100);
+    
     angleMode(DEGREES);
     counter = 0;
     
@@ -42,7 +46,6 @@ function draw(){
     frameRate(120);
     waveLimit = 0.21;
     numOfStrings = 5;
-
     createTraiangle();
 
     // logs
@@ -230,7 +233,7 @@ function createFrontLines(){
                 else{
                     let frontLinesHighFrequencyColor = color(localStorage.getItem("frontLinesHighFrequencyColor"));
                     stroke(frontLinesHighFrequencyColor);
-                    
+
                     line(beamSpace, 0, beamSpace, windowHeight);
                 }
             }
