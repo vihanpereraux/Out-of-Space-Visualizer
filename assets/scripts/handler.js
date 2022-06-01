@@ -62,4 +62,4 @@ function setDefaultValues(){
     localStorage.setItem("frontLinesHighFrequencyColor", '#FF0000');
 }
 
-// setDefaultValues();
+setDefaultValues();
