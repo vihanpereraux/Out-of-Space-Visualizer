@@ -269,6 +269,7 @@ function resetCanvas(){
 }
 
 
+<<<<<<< HEAD
 function keyPressed(){
     sound.play();
 }
@@ -278,3 +279,8 @@ window.setInterval(function() {
     resetCanvas();
 }, 260);
 
+=======
+window.setInterval(function() {
+    resetCanvas();
+}, 260);
+>>>>>>> 893b3a8ece23fa4832c58a47d9337d26eed5e8a3
