@@ -1,9 +1,13 @@
 // For displaying values stored in storage
 window.onload = function(){
+    setDefaultValues();
+    updateControllers();
+}
+
+function updateControllers(){
     updateVariablesPanel();
     updateColorsPanel();
 }
-
 
 function updateStorage(){
     updateVariablesStorage();
@@ -41,7 +45,7 @@ function setDefaultValues(){
 
     // colors panel properties
     localStorage.setItem("bgLowFrequencyColor", '#000000');
-    localStorage.setItem("bgHighFrequencyColor", '#FF0000');
+    localStorage.setItem("bgHighFrequencyColor", '#ffffff');
 
     localStorage.setItem("triangleLowFrequencyColor", '#ffffff');
     localStorage.setItem("triangleHighFrequencyColor", '#FF0000');
@@ -61,5 +65,4 @@ function setDefaultValues(){
     localStorage.setItem("frontLinesLowFrequencyColor", '#ffffff');
     localStorage.setItem("frontLinesHighFrequencyColor", '#FF0000');
 }
-
 // setDefaultValues();
