@@ -102,16 +102,20 @@ function createTraiangle(){
             noFill();
             let highFQStroke = color(localStorage.getItem("triangleHighFrequencyColor"));
             stroke(highFQStroke);
+
             let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
             strokeWeight(traiangleSkeltonWeight);
+
             triangle(x2, y2, x1, y1, x3, y3);
         }
         else{
             noFill();
             let lowFQStroke = color(localStorage.getItem("triangleLowFrequencyColor"));
             stroke(lowFQStroke);
+
             let traiangleSkeltonWeight = localStorage.getItem("traiangleSkeltonWeight");
             strokeWeight(traiangleSkeltonWeight);
+
             triangle(x2, y2, x1, y1, x3, y3);
         }
         translate(0, 0);
@@ -172,14 +176,20 @@ function createCircles(){
         if(amp.getLevel() > waveLimit){
             let circleBorderWeight = localStorage.getItem("circleBorderWeight");
             strokeWeight(circleBorderWeight);
-            stroke(0);
+
+            let circlesHighFrequencyColor = color(localStorage.getItem("circlesHighFrequencyColor"));
+            stroke(circlesHighFrequencyColor);
+
             let circlesRadius = localStorage.getItem("circlesRadius");
             circle(x3, y3, amp.getLevel()*circlesRadius);
         }
         else{
             let circleBorderWeight = localStorage.getItem("circleBorderWeight");
             strokeWeight( (circleBorderWeight/10)*4 );
-            stroke(255);
+
+            let circlesLowFrequencyColor = color(localStorage.getItem("circlesLowFrequencyColor"));
+            stroke(circlesLowFrequencyColor);
+
             circle(x3, y3, amp.getLevel()*700);
         }
     }
@@ -189,10 +199,12 @@ function createCircles(){
 function createAttachments(){
     if(counter < numOfStrings){
         if(amp.getLevel() > waveLimit){
-            stroke(random(150, 255), 0, 0);
+            let attachmentsHighFrequencyColor = color(localStorage.getItem("attachmentsHighFrequencyColor"));
+            stroke(attachmentsHighFrequencyColor);
         }
         else{
-            stroke(255);
+            let attachmentsLowFrequencyColor = color(localStorage.getItem("attachmentsLowFrequencyColor"));
+            stroke(attachmentsLowFrequencyColor);
         }
         strokeWeight(1);
         translate(0,0);
@@ -210,11 +222,15 @@ function createFrontLines(){
             let beamSpace = i*40;
             if(beamSpace < windowWidth){
                 if(amp.getLevel() < waveLimit){
-                    stroke(255);
+                    let frontLinesLowFrequencyColor = color(localStorage.getItem("frontLinesLowFrequencyColor"));
+                    stroke(frontLinesLowFrequencyColor);
+
                     line(beamSpace, 0, beamSpace, windowHeight);
                 }
                 else{
-                    stroke(255, 0, 0);
+                    let frontLinesHighFrequencyColor = color(localStorage.getItem("frontLinesHighFrequencyColor"));
+                    stroke(frontLinesHighFrequencyColor);
+                    
                     line(beamSpace, 0, beamSpace, windowHeight);
                 }
             }
@@ -228,11 +244,12 @@ function resetCanvas(){
         clear();
         createCanvas(windowWidth, windowHeight);
         if(amp.getLevel() > waveLimit){
-            background(255);
+            let highFQBackground = color(localStorage.getItem("bgHighFrequencyColor"));
+            background(highFQBackground);
         }
         else{
-            let bgColor = color(localStorage.getItem("BgColor"));
-            background(bgColor);
+            let bgLowFrequencyColor = color(localStorage.getItem("bgLowFrequencyColor"));
+            background(bgLowFrequencyColor);
         }
         angleMode(DEGREES);
         counter = 0;
