@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAL Visualizer</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <!-- custom stylings -->
+  <link rel="stylesheet" href="assets/styles/global.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/visualizer_one/general.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/visualizer_one/variables_panel.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/visualizer_one/colors_panel.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/visualizer_one/music_panel.css">
+  
+  <!-- Bootstrap v5.x CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+<body>
+  <div class="accordion controllers-accordion" id="mainControllerAccordian">
+    <div class="accordion-item">
+      
+      <h2 class="accordion-header" id="panelsStayOpen-controllersHeading">
+        <button class="accordion-button custom-accordion-header" type="button" data-bs-toggle="collapse" 
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          <h4>CONTROLLERS</h4>
+        </button>
+      </h2>
+      
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-controllersHeading">
+        <div class="accordion-body controllers-accordion-body">
+          
+          <!-- variables panel -->
+          <div class="accordion-item">
+            
+            <h2 class="accordion-header" id="panelsStayOpen-varaiblesPanelHeading">
+              <button class="accordion-button collapsed custom-accordion-header" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-varaiblesPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                <h4>Variables Panel</h4>
+              </button>
+            </h2>
+
+            <div id="panelsStayOpen-varaiblesPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-varaiblesPanelHeading">
+              <div class="accordion-body variables-panel-accordion-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="variables-panel-triangle-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Triangle</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="traiangleSkeltonCheck" checked>
+                          <label class="form-check-label variables-panel-label ps-2" for="traiangleSkeltonCheck">
+                            Triangle skeleton 
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="traiangleSkeltonWeight" class="form-label variables-panel-label-v2">Triangle skeleton weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="traiangleSkeltonWeight" value="1">
+                        </div>
+                      </div>
+
+                      <div id="variables-panel-inner-lines-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Inner Lines</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="innerLinesCheck" checked>
+                          <label class="form-check-label variables-panel-label ps-2" for="innerLinesCheck">
+                            Inner lines
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="innerLinesWeight" class="form-label variables-panel-label-v2">Inner lines weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="innerLinesWeight">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="variables-panel-circles-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Circles</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="circlesGroupCheck" checked>
+                          <label class="form-check-label variables-panel-label ps-2" for="circlesGroupCheck">
+                            Circles group 
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="circlesRadius" class="form-label variables-panel-label-v2">Circle radius</label>
+                          <input type="number" class="form-control variables-panel-input" id="circlesRadius">
+                        </div>
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="circleBorderWeight" class="form-label variables-panel-label-v2">Circle border weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="circleBorderWeight">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="variables-panel-outer-line-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Outer Line</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="outerLineCheck" checked>
+                          <label class="form-check-label variables-panel-label ps-2" for="outerLineCheck">
+                            Outer line
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="outerLineWeight" class="form-label variables-panel-label-v2">Outer line weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="outerLineWeight">
+                        </div>
+                      </div>
+
+                      <div id="variables-panel-front-lines-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Front Lines</h6>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="variables-panel-checkbox-wrapper">
+                          <input class="form-check-input" type="checkbox" value="" id="frontLinesCheck" checked>
+                          <label class="form-check-label variables-panel-label ps-2" for="frontLinesCheck">
+                            Front lines
+                          </label>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <label for="frontLinesWeight" class="form-label variables-panel-label-v2">Front lines weight</label>
+                          <input type="number" class="form-control variables-panel-input" id="frontLinesWeight">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                      <div id="variables-panel-attachments-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Attachments // bonds</h6>
+                        </div>
+
+                        <div class="row-one">
+                          <div>
+                            <!-- checkbox -->
+                            <div class="variables-panel-checkbox-wrapper">
+                              <input class="form-check-input" type="checkbox" value="" id="attachmentSetOneCheck" checked>
+                              <label class="form-check-label variables-panel-label ps-2" for="attachmentSetOneCheck">
+                                Attachment set one
+                              </label>
+                            </div>
+                            <!-- input field -->
+                            <div class="variables-panel-input-field-wrapper">
+                              <label for="setOneCoordinatesStart" class="form-label variables-panel-label-v2">Coordinate phrase [px]</label>
+                              <div class="coordinates-group">
+                                <input type="number" class="w-50 form-control variables-panel-input" id="setOneCoordinatesStart">
+                                <input type="number" class="w-50 ms-3 form-control variables-panel-input" id="setOneCoordinatesEnd">
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="ms-3">
+                            <!-- checkbox -->
+                            <div class="variables-panel-checkbox-wrapper">
+                              <input class="form-check-input" type="checkbox" value="" id="attachmentSetTwoCheck" checked>
+                              <label class="form-check-label variables-panel-label ps-2" for="attachmentSetTwoCheck">
+                                Attachment set two
+                              </label>
+                            </div>
+                            <!-- input field -->
+                            <div class="variables-panel-input-field-wrapper">
+                              <label for="setTwoCoordinatesStart" class="form-label variables-panel-label-v2">Coordinate phrase [px]</label>
+                              <div class="coordinates-group">
+                                <input type="number" class="w-50 form-control variables-panel-input" id="setTwoCoordinatesStart">
+                                <input type="number" class="w-50 ms-3 form-control variables-panel-input" id="setTwoCoordinatesEnd">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row-two">
+                          <div>
+                            <!-- checkbox -->
+                            <div class="variables-panel-checkbox-wrapper">
+                              <input class="form-check-input" type="checkbox" value="" id="attachmentSetThreeCheck" checked>
+                              <label class="form-check-label variables-panel-label ps-2" for="attachmentSetThreeCheck">
+                                Attachment set three
+                              </label>
+                            </div>
+                            <!-- input field -->
+                            <div class="variables-panel-input-field-wrapper">
+                              <label for="setThreeCoordinatesStart" class="form-label variables-panel-label-v2">Coordinate phrase [px]</label>
+                              <div class="coordinates-group">
+                                <input type="number" class="w-50 form-control variables-panel-input" id="setThreeCoordinatesStart">
+                                <input type="number" class="w-50 ms-3 form-control variables-panel-input" id="setThreeCoordinatesEnd">
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="ms-3">
+                            <!-- checkbox -->
+                            <div class="variables-panel-checkbox-wrapper">
+                              <input class="form-check-input" type="checkbox" value="" id="attachmentSetFourCheck" checked>
+                              <label class="form-check-label variables-panel-label ps-2" for="attachmentSetFourCheck">
+                                Attachment set four
+                              </label>
+                            </div>
+                            <!-- input field -->
+                            <div class="variables-panel-input-field-wrapper">
+                              <label for="setFourCoordinatesStart" class="form-label variables-panel-label-v2">Coordinate phrase [px]</label>
+                              <div class="coordinates-group">
+                                <input type="number" class="w-50 form-control variables-panel-input" id="setFourCoordinatesStart">
+                                <input type="number" class="w-50 ms-3 form-control variables-panel-input" id="setFourCoordinatesEnd">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- colors panel -->
+          <div class="accordion-item">
+            
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+              <button class="accordion-button collapsed custom-accordion-header" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-colorsPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                <h4>Colors Panel</h4>
+              </button>
+            </h2>
+
+            <div id="panelsStayOpen-colorsPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+              <div class="accordion-body colors-panel-accordion-body">
+                <div class="container-fluid">
+                  <div class="row">
+                  
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-bg-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Bg Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="bgLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="bgLowFrequencyColor">
+                        
+                          <label for="bgHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="bgHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-triangle-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Triangle. Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="triangleLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="triangleLowFrequencyColor">
+                        
+                          <label for="triangleHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="triangleHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-circles-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Circles Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="circlesLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="circlesLowFrequencyColor">
+                        
+                          <label for="circlesHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="circlesHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-inner-lines-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Inn. Lines Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="innerLinesLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="innerLinesLowFrequencyColor">
+                        
+                          <label for="innerLinesHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="innerLinesHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-outer-line-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Outer Lines Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="outerLineLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="outerLineLowFrequencyColor">
+                        
+                          <label for="outerLinesHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="outerLinesHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-attachments-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Attachms. Color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="attachmentsLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="attachmentsLowFrequencyColor">
+                        
+                          <label for="attachmentsHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="attachmentsHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="colors-panel-front-lines-color-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Front Lines color</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="colors-panel-input-field-wrapper">
+                          <label for="frontLinesLowFrequencyColor" class="form-label colors-panel-label-v2">Low frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="frontLinesLowFrequencyColor">
+                        
+                          <label for="frontLinesHighFrequencyColor" class="form-label colors-panel-label-v2">High frequency color</label>
+                          <input type="color" class="form-control colors-panel-input" id="frontLinesHighFrequencyColor">
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div> 
+                </div>  
+              </div>
+            </div>
+
+          </div>
+
+          <!-- music panel -->
+          <div class="accordion-item">
+
+            <h2 class="accordion-header" id="panelsStayOpen-musicPanelHeading">
+              <button class="accordion-button collapsed custom-accordion-header" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-musicPanel" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                <h4>Music Panel</h4>
+              </button>
+            </h2>
+
+            <div id="panelsStayOpen-musicPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-musicPanelHeading">
+              <div class="accordion-body music-panel-accordion-body">
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-md-3 col-lg-3 col-xl-4">
+                      <div id="music-panel-track-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Music Track</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <input type="file" class="form-control music-panel-input" id="musicTrack">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="music-panel-volume-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Volume</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <input type="number" class="form-control music-panel-input" id="musicVolume" value="100" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-lg-3 col-xl-4">
+                      <div id="music-panel-frequency-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Wave Length - FQ</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <input type="number" class="form-control music-panel-input" id="waveLength" disabled>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <div id="music-panel-track-wrapper">
+                        <!-- label -->
+                        <div class="label-background">
+                          <h6>Restart</h6>
+                        </div>
+                        <!-- input field -->
+                        <div class="variables-panel-input-field-wrapper">
+                          <input type="text" class="form-control music-panel-input" id="restartNote" value="PRESS R" disabled>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="assets/scripts/visualizer_one.js"></script>
+  <script src="assets/scripts/handler.js"></script>
+  <script src="assets/scripts/colors_panel.js"></script>
+  <script src="assets/scripts/variables_panel.js"></script>
+  <script src="assets/scripts/music_panel.js"></script>
+
+  <!-- Bootstrap JS bundle v5.x -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
