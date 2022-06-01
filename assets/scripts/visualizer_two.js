@@ -275,12 +275,14 @@ window.setInterval(function() {
 
 
 function keyPressed(){
-    sound.play();
-}
-
-
-function keyPressed(){
     if(keyCode === 83){
-        setDefaultValues();
+        sound.play();
     }
 }
+
+
+// function keyPressed(){
+//     if(keyCode === 83){
+//         setDefaultValues();
+//     }
+// }
