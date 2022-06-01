@@ -7,7 +7,7 @@ window.onload = function(){
 function updateControllers(){
     updateVariablesPanel();
     updateColorsPanel();
-    setDefaultValues();
+    // setDefaultValues();
 }
 
 function updateStorage(){
