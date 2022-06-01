@@ -118,16 +118,48 @@ function createTraiangle(){
         angleMode(DEGREES);
         
         if(innerLinesCheck.checked == true){
-            let innerLinesWeight = localStorage.getItem("innerLinesWeight");
-            strokeWeight(innerLinesWeight);
-            line(x1, y1, (x2-x1)*0.75+x1, y3/2);
-            line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+            if(amp.getLevel() > waveLimit){
+                let innerLinesWeight = localStorage.getItem("innerLinesWeight");
+                strokeWeight(innerLinesWeight);
+
+                let highFQStroke = color(localStorage.getItem("innerLinesHighFrequencyColor"));
+                stroke(highFQStroke);
+
+                line(x1, y1, (x2-x1)*0.75+x1, y3/2);
+                line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+            }
+            else{
+                let innerLinesWeight = localStorage.getItem("innerLinesWeight");
+                strokeWeight(innerLinesWeight);
+
+                let lowFQStroke = color(localStorage.getItem("innerLinesLowFrequencyColor"));
+                stroke(lowFQStroke);
+
+                line(x1, y1, (x2-x1)*0.75+x1, y3/2);
+                line(x2, y2, (x2-x1)*0.25+x1, y3/2);
+            }
+            
         }
 
         if(outerLineCheck.checked == true){
-            let outerLineWeight = localStorage.getItem("outerLineWeight");
-            strokeWeight(outerLineWeight);
-            line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+            if(amp.getLevel() > waveLimit){
+                let outerLineWeight = localStorage.getItem("outerLineWeight");
+                strokeWeight(outerLineWeight);
+
+                let highFQStroke = color(localStorage.getItem("outerLinesHighFrequencyColor"));
+                color(highFQStroke);
+
+                line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+            }
+            else{
+                let outerLineWeight = localStorage.getItem("outerLineWeight");
+                strokeWeight(outerLineWeight);
+
+                let lowFQStroke = color(localStorage.getItem("outerLineLowFrequencyColor"));
+                stroke(lowFQStroke);
+
+                line((x2-x1)/2+x1, 0, (x2-x1)/2+x1, windowHeight);
+            }
         }
     }
 }
