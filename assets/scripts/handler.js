@@ -2,6 +2,7 @@
 window.onload = function(){
     updateVariablesPanel();
     updateColorsPanel();
+    setDefaultValues();
 }
 
 
@@ -61,5 +62,3 @@ function setDefaultValues(){
     localStorage.setItem("frontLinesLowFrequencyColor", '#ffffff');
     localStorage.setItem("frontLinesHighFrequencyColor", '#FF0000');
 }
-
-setDefaultValues();
