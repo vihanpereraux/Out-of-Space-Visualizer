@@ -269,11 +269,18 @@ function resetCanvas(){
 }
 
 
+window.setInterval(function() {
+    resetCanvas();
+}, 260);
+
+
 function keyPressed(){
     sound.play();
 }
 
 
-window.setInterval(function() {
-    resetCanvas();
-}, 260);
+function keyPressed(){
+    if(keyCode === 83){
+        setDefaultValues();
+    }
+}
