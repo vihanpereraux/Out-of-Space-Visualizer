@@ -1,6 +1,5 @@
 // For displaying values stored in storage
 window.onload = function(){
-    localStorage.clear();
     setDefaultValues();
     updateControllers();
 }

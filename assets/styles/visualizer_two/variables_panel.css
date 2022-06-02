@@ -1,0 +1,99 @@
+/* general properties */
+.variables-panel-accordion-body{
+    background-color: #101010;
+    padding-bottom: 55px !important;
+}
+
+.label-background{
+    background-color: black;
+    text-align: center;
+    padding-top: 11px;
+    padding-bottom: 4px;
+}
+.label-background h6{
+    color: white;
+    text-transform: uppercase;
+}
+
+.variables-panel-checkbox-wrapper{
+    margin-top: 30px;
+}
+.form-check-input:focus{
+    box-shadow: none !important;
+}
+.variables-panel-label{
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.variables-panel-input-field-wrapper{
+    margin-top: 30px;
+}
+.variables-panel-label-v2{
+    color: white;
+    font-size: 14px;
+}
+.variables-panel-input{
+    margin-top: 5px;
+    font-size: 28px !important;
+    text-align: center;
+    background-color: black !important;
+    font-family: DigitalSeven !important;
+    color: #46E41F !important;
+    font-weight: 500;
+    border: none !important;
+    letter-spacing: 2.5px;
+}
+.variables-panel-input:focus{
+    box-shadow: none !important;
+}
+/* end of general properties */
+
+
+/* triangle properties */
+#variables-panel-triangle-wrapper{
+    margin-top: 40px;
+}
+/* end of triangle properties */
+
+
+/* inner lines properties */
+#variables-panel-inner-lines-wrapper{
+    margin-top: 50px !important; 
+}
+/* end of inner lines properties */
+
+
+/* circles properties */
+#variables-panel-circles-wrapper{
+    margin-top: 40px;
+}
+/* end of circles properties */
+
+
+/* outer line properties */
+#variables-panel-outer-line-wrapper{
+    margin-top: 40px;
+}
+/* end of outer line properties */
+
+
+/* front lines properties */
+#variables-panel-front-lines-wrapper{
+    margin-top: 50px;
+}
+/* end of front lines properties */
+
+
+/* attachments properties */
+#variables-panel-attachments-wrapper{
+    margin-top: 40px;
+}
+.row-one, .row-two{
+    display: flex;
+}
+.coordinates-group{
+    display: flex;
+}
+/* end of attachments properties */

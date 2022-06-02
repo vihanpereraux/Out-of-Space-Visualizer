@@ -1,13 +1,33 @@
 body{
   background: black;
+  overflow-x: hidden;
 }
 
 canvas {
   display: block;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
   background-color: black;
+}
+
+.controllers-accordion{
+  background-color: #101010;
+  outline: none;
+  border: none;
+  box-shadow: none !important;
+}
+.custom-accordion-header{
+  background-color: #101010 !important;
+}
+.custom-accordion-header h4{
+  color: white;
+  font-weight: 700;
+  margin-top: 10px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+.custom-accordion-header:focus{
+  box-shadow: none !important;
+}
+.controllers-accordion-body{
+  background-color: #101010;
 }
 

@@ -30,16 +30,6 @@ function draw() {
   }
 }
 
-function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    calmSelection = false;
-    disturbedSelection = true;
-  } 
-  else if (keyCode === RIGHT_ARROW) {
-    calmSelection = true;
-    disturbedSelection = false;
-  }
-}
 
 function calmMind(){
   y = y +1;
@@ -51,11 +41,11 @@ function calmMind(){
       if (i%2 == 0){
         stroke(220);
         // bezier(10, i*25, random(200), i*25+y, random(500,650), i*25-y, windowWidth/2-10, i*25);
-        bezier(0, i*25, windowWidth/2, i*25+y, 400, i*25-y, windowWidth, i*25);
+        bezier(0, (i*25), windowWidth/2, i*25+y, 500, i*25-y, windowWidth, (i*25));
       }
       else{
         stroke(255);
-        bezier(0, i*25, windowWidth/2, i*25+y, 400, i*25-y, windowWidth, i*25);
+        bezier(0, (i*25), windowWidth/2, i*25+y, 500, i*25-y, windowWidth, (i*25));
       }
     }
     else{
