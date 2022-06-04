@@ -5,18 +5,35 @@ window.onload = function(){
 }
 
 function updateControllers(){
-    updateVariablesPanel();
+    updateBezierPanel();
     updateColorsPanel();
 }
 
+function updateStorage(){
+    updateBezierPanelStorage();
+    updateBezierColorsStorage();
+}   
+
+window.setInterval(function() {
+    updateStorage();
+}, 100);
+
 function setDefaultValues(){
     // varaibles panel properties
-    localStorage.setItem("leftGap", '#000000');
-    localStorage.setItem("rightGap", 1);
-    localStorage.setItem("firstPointGap", 1);
-    localStorage.setItem("firstPointGap", 1);
-    localStorage.setItem("firstBend", 500);
-    localStorage.setItem("secondBend", 1);
+    localStorage.setItem("leftGap", 25);
+    localStorage.setItem("rightGap", 25);
+    localStorage.setItem("firstPointGap", 25);
+    localStorage.setItem("secondPointGap", 25);
+    localStorage.setItem("firstBend", 700);
+    localStorage.setItem("secondBend", 600);
+
+    // varaibles panel properties - disturbed mind
+    localStorage.setItem("disturbedLeftGap", 25);
+    localStorage.setItem("disturbedRightGap", 25);
+    localStorage.setItem("disturbedFirstPointGap", 25);
+    localStorage.setItem("disturbedSecondPointGap", 25);
+    localStorage.setItem("disturbedFirstBend", 700);
+    localStorage.setItem("disturbedSecondBend", 600);
 
     // colors panel properties
     localStorage.setItem("bgLowFrequencyColor", '#000000');

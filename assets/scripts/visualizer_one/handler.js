@@ -15,7 +15,6 @@ function updateStorage(){
     updateColorsStorage();
 }   
 
-
 window.setInterval(function() {
     updateStorage();
 }, 100);

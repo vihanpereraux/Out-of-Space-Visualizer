@@ -24,6 +24,12 @@ canvas {
   text-decoration: none !important;
   text-transform: uppercase;
 }
+h5{
+  color: white;
+  font-weight: 600 !important;
+  margin-top: 20px !important;
+  text-transform: uppercase;
+}
 .custom-accordion-header:focus{
   box-shadow: none !important;
 }

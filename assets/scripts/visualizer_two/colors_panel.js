@@ -1,4 +1,4 @@
-function updateColorsPanel(){
+function updateBezierColorsPanel(){
     let bgLowFrequencyColor = localStorage.getItem("bgLowFrequencyColor");
     document.getElementById("bgLowFrequencyColor").value = bgLowFrequencyColor;
     let bgHighFrequencyColor = localStorage.getItem("bgHighFrequencyColor");
@@ -10,7 +10,7 @@ function updateColorsPanel(){
     document.getElementById("beziarHighFrequencyColor").value = beziarHighFrequencyColor;
 }
 
-function updateColorsStorage(){
+function updateBezierColorsStorage(){
     let bgLowFrequencyColor = document.getElementById("bgLowFrequencyColor").value;  
     localStorage.setItem("bgLowFrequencyColor", bgLowFrequencyColor);
     let bgHighFrequencyColor = document.getElementById("bgHighFrequencyColor").value;  

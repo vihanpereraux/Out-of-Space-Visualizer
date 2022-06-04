@@ -1,4 +1,4 @@
-function updateVariablesPanel(){
+function updateBezierPanel(){
     let leftGap = localStorage.getItem("leftGap");
     document.getElementById("leftGap").value = leftGap;
 
@@ -16,10 +16,28 @@ function updateVariablesPanel(){
 
     let secondBend = localStorage.getItem("secondBend");
     document.getElementById("secondBend").value = secondBend;
+
+    let disturbedLeftGap = localStorage.getItem("disturbedLeftGap");
+    document.getElementById("disturbedLeftGap").value = disturbedLeftGap;
+
+    let disturbedRightGap = localStorage.getItem("disturbedRightGap");
+    document.getElementById("disturbedRightGap").value = disturbedRightGap;
+
+    let disturbedFirstPointGap = localStorage.getItem("disturbedFirstPointGap");
+    document.getElementById("disturbedFirstPointGap").value = disturbedFirstPointGap;
+
+    let disturbedSecondPointGap = localStorage.getItem("disturbedSecondPointGap");
+    document.getElementById("disturbedSecondPointGap").value = disturbedSecondPointGap;
+
+    let disturbedFirstBend = localStorage.getItem("disturbedFirstBend");
+    document.getElementById("disturbedFirstBend").value = disturbedFirstBend;
+
+    let disturbedSecondBend = localStorage.getItem("disturbedSecondBend");
+    document.getElementById("disturbedSecondBend").value = disturbedSecondBend;
 }
 
 
-function updateVariablesStorage(){
+function updateBezierPanelStorage(){
     let leftGap = document.getElementById("leftGap").value;
     localStorage.setItem("leftGap", leftGap);
 
@@ -37,4 +55,22 @@ function updateVariablesStorage(){
     
     let secondBend = document.getElementById("secondBend").value;
     localStorage.setItem("secondBend", secondBend);
+
+    let disturbedLeftGap = document.getElementById("disturbedLeftGap").value;
+    localStorage.setItem("disturbedLeftGap", disturbedLeftGap);
+
+    let disturbedRightGap = document.getElementById("disturbedRightGap").value;
+    localStorage.setItem("disturbedRightGap", disturbedRightGap);
+
+    let disturbedFirstPointGap = document.getElementById("disturbedFirstPointGap").value;
+    localStorage.setItem("disturbedFirstPointGap", disturbedFirstPointGap);
+
+    let disturbedSecondPointGap = document.getElementById("disturbedSecondPointGap").value;
+    localStorage.setItem("disturbedSecondPointGap", disturbedSecondPointGap);
+
+    let disturbedFirstBend = document.getElementById("disturbedFirstBend").value;
+    localStorage.setItem("disturbedFirstBend", disturbedFirstBend);
+    
+    let disturbedSecondBend = document.getElementById("disturbedSecondBend").value;
+    localStorage.setItem("disturbedSecondBend", disturbedSecondBend);
 }
