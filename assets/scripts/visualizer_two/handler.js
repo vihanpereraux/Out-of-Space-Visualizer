@@ -6,7 +6,7 @@ window.onload = function(){
 
 function updateControllers(){
     updateBezierPanel();
-    updateColorsPanel();
+    updateBezierColorsPanel();
 }
 
 function updateStorage(){

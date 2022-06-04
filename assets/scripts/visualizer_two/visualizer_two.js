@@ -11,14 +11,15 @@ var secondPointGap, disturbedSecondPointGap;
 var firstBend, disturbedFirstBend;
 var secondBend, disturbedSecondBend;
 
+var bgLowFrequencyColor, bgHighFrequencyColor;
+var beziarLowFrequencyColor, beziarHighFrequencyColor;
+
 
 function preload(){
   sound = loadSound("Glitch.mp3")
 }
 
 function setup() {
-  let removal = 0;
-  // createCanvas(windowWidth/2, 500);
   createCanvas(windowWidth, windowHeight)
   amp = new p5.Amplitude();
   y = 0;
@@ -45,13 +46,16 @@ function draw() {
   disturbedSecondBend = localStorage.getItem("disturbedSecondBend");
 
   var waveHeight = amp.getLevel();
+  document.getElementById("waveLength").value = ((waveHeight*100).toFixed(5));
 
   if (waveHeight < 0.35){
-    background(0);
+    bgLowFrequencyColor = color(localStorage.getItem("bgLowFrequencyColor"));
+    background(bgLowFrequencyColor);
     calmMind();
   }
   else{
-    background(255);
+    bgHighFrequencyColor = color(localStorage.getItem("bgHighFrequencyColor"));
+    background(bgHighFrequencyColor);
     disturbedMind();  
   }
 }
@@ -62,15 +66,17 @@ function calmMind(){
   for (let i = 0; i < windowHeight; i++) {
     if (y < 500){
       noFill();
-      strokeWeight(2);
+      strokeWeight(1);
       smooth();
 
       if (i%2 == 0){
-        stroke(220);
+        beziarLowFrequencyColor = color(localStorage.getItem("beziarLowFrequencyColor"));
+        stroke(beziarLowFrequencyColor);
         bezier(0, (i*leftGap), firstBend, i*firstPointGap+y, secondBend, i*secondPointGap-y, windowWidth, (i*rightGap));
       }
       else{
-        stroke(255);
+        beziarLowFrequencyColor = color(localStorage.getItem("beziarLowFrequencyColor"));
+        stroke(beziarLowFrequencyColor);
         bezier(0, (i*leftGap), firstBend, i*firstPointGap+y, secondBend, i*secondPointGap-y, windowWidth, (i*rightGap));
       }
     }
@@ -88,16 +94,18 @@ function disturbedMind(){
       strokeWeight(2);
       smooth();
       if (i%2 == 0){
-        stroke(255,0,0);
-        // bezier(0, i*leftGap, random(firstBend, firstBend+50), random(i*firstPointGap+y, (i*firstPointGap+y+70)), random(secondBend, secondBend+50), random(i*secondPointGap-y, (i*secondPointGap-y+70)), windowWidth, i*rightGap);
-        // bezier(0, random(i*leftGap), random(firstBend), i*firstPointGap+y, random(secondBend, secondBend-100), i*secondPointGap-y, windowWidth, random(i*rightGap));
-        bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
+        beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
+        stroke(beziarHighFrequencyColor);
+        //bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
+        bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
+        // bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
       }
       else{
-        stroke(255,0,0);
-        // bezier(0, i*leftGap, random(firstBend, firstBend+50), random(i*firstPointGap+y, (i*firstPointGap+y+70)), random(secondBend, secondBend+50), random(i*secondPointGap-y, (i*secondPointGap-y+70)), windowWidth, i*rightGap);
-        // bezier(0, random(i*leftGap), random(firstBend), i*firstPointGap+y, random(secondBend, secondBend-100), i*secondPointGap-y, windowWidth, random(i*rightGap));
-        bezier(0, i*leftGap, (firstBend), i*firstPointGap+y, (secondBend), i*secondPointGap-y, windowWidth, i*rightGap);
+        beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
+        stroke(beziarHighFrequencyColor);
+        // bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
+        // bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
+        // bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
       }
     }
     else{
