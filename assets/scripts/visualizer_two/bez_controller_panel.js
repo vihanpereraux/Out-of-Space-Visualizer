@@ -34,6 +34,12 @@ function updateBezierPanel(){
 
     let disturbedSecondBend = localStorage.getItem("disturbedSecondBend");
     document.getElementById("disturbedSecondBend").value = disturbedSecondBend;
+
+    let bezierWeight = localStorage.getItem("bezierWeight");
+    document.getElementById("bezierWeight").value = bezierWeight;
+
+    let disturbedBezierWeight = localStorage.getItem("disturbedBezierWeight");
+    document.getElementById("disturbedBezierWeight").value = disturbedBezierWeight;
 }
 
 
@@ -73,4 +79,10 @@ function updateBezierPanelStorage(){
     
     let disturbedSecondBend = document.getElementById("disturbedSecondBend").value;
     localStorage.setItem("disturbedSecondBend", disturbedSecondBend);
+
+    let bezierWeight = document.getElementById("bezierWeight").value;
+    localStorage.setItem("bezierWeight", bezierWeight);
+
+    let disturbedBezierWeight = document.getElementById("disturbedBezierWeight").value;
+    localStorage.setItem("disturbedBezierWeight", disturbedBezierWeight);
 }

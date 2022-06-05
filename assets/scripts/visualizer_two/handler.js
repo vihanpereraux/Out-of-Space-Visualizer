@@ -26,6 +26,7 @@ function setDefaultValues(){
     localStorage.setItem("secondPointGap", 25);
     localStorage.setItem("firstBend", 700);
     localStorage.setItem("secondBend", 600);
+    localStorage.setItem("bezierWeight", 1)
 
     // varaibles panel properties - disturbed mind
     localStorage.setItem("disturbedLeftGap", 25);
@@ -34,6 +35,7 @@ function setDefaultValues(){
     localStorage.setItem("disturbedSecondPointGap", 25);
     localStorage.setItem("disturbedFirstBend", 700);
     localStorage.setItem("disturbedSecondBend", 600);
+    localStorage.setItem("disturbedBezierWeight", 1)
 
     // colors panel properties
     localStorage.setItem("bgLowFrequencyColor", '#000000');

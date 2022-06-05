@@ -66,7 +66,8 @@ function calmMind(){
   for (let i = 0; i < windowHeight; i++) {
     if (y < 500){
       noFill();
-      strokeWeight(1);
+      let bezierWeight = localStorage.getItem("bezierWeight");
+      strokeWeight(bezierWeight);
       smooth();
 
       if (i%2 == 0){
@@ -116,10 +117,16 @@ function disturbedMind(){
 
 
 function keyPressed(){
+  // p to play music
   if(keyCode === 80){
     sound.play();
   }
+  // m to stop music
   if(keyCode === 77){
-    sound.stop()
+    sound.stop();
+  }
+  // r to reset all
+  if(keyCode === 82){
+    location.reload();
   }
 }

@@ -278,6 +278,10 @@ function keyPressed(){
     if (keyCode === 77){
         sound.stop();
     }
+
+    if (keyCode === 82){
+        location.reload();
+    }
 }
 
 setTimeout(function() {
