@@ -222,7 +222,7 @@ function createFrontLines(){
         for (let i = 1; i < windowWidth; i++) {
             let frontLinesWeight = localStorage.getItem("frontLinesWeight");
             strokeWeight(frontLinesWeight);
-            let beamSpace = i*40;
+            let beamSpace = i*(localStorage.getItem("beamSpace"));
             if(beamSpace < windowWidth){
                 if(amp.getLevel() < waveLimit){
                     let frontLinesLowFrequencyColor = color(localStorage.getItem("frontLinesLowFrequencyColor"));

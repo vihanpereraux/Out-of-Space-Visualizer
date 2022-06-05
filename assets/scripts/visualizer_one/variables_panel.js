@@ -36,6 +36,9 @@ function updateVariablesPanel(){
     document.getElementById("setFourCoordinatesStart").value = setFourCoordinatesStart;
     let setFourCoordinatesEnd = localStorage.getItem("setFourCoordinatesEnd");
     document.getElementById("setFourCoordinatesEnd").value = setFourCoordinatesEnd;
+
+    let beamSpace = localStorage.getItem("beamSpace");
+    document.getElementById("beamSpace").value = beamSpace;
 }
 
 
@@ -77,4 +80,7 @@ function updateVariablesStorage(){
     localStorage.setItem("setFourCoordinatesStart", setFourCoordinatesStart);   
     let setFourCoordinatesEnd = document.getElementById("setFourCoordinatesEnd").value;
     localStorage.setItem("setFourCoordinatesEnd", setFourCoordinatesEnd);
+
+    let beamSpace = document.getElementById("beamSpace").value;
+    localStorage.setItem("beamSpace", beamSpace);
 }

@@ -41,6 +41,7 @@ function setDefaultValues(){
     localStorage.setItem("setFourCoordinatesStart", 1300);
     localStorage.setItem("setFourCoordinatesEnd", 2600);
 
+    localStorage.setItem("beamSpace", 40);
 
     // colors panel properties
     localStorage.setItem("bgLowFrequencyColor", '#000000');
