@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- cache prevention -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+    <!-- cache prevention -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
-  <!-- custom stylings -->
-  <link rel="stylesheet" type="text/css" href="assets/styles/global.css">
-  <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- custom stylings -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/global.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
 
-  <!-- Bootstrap v5.x CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap v5.x CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- Ajax -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script src="libraries/p5.min.js"></script>
-  <script src="libraries/p5.sound.min.js"></script>
-  
-  <title>U A L - V I S U A L I Z E R</title>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    
+    <title>U A L - V I S U A L I Z E R</title>
 </head>
 <body>
 
-  <div id="home-content">
-    <h2>- Out of space visualizer -</h2>
-    <div id="buttons-section">
-      <a class="btn" href="story.html">Story</a>
-      <a class="btn ms-2 me-1" href="visualizer_one.html">Visulaizer one</a> 
-      <a class="btn ms-1 me-2" href="visualizer_two.html">Visulaizer two</a>
-      <a class="btn" href="help.html">help</a>
+    <div id="home-content">
+      <h2>- Out of space visualizer -</h2>
+      <div id="buttons-section">
+        <a class="btn" href="story.html">Story</a>
+        <a class="btn ms-2 me-1" href="visualizer_one.html">Visulaizer one</a> 
+        <a class="btn ms-1 me-2" href="visualizer_two.html">Visulaizer two</a>
+        <a class="btn" href="help.html">help</a>
+      </div>
+      
+      <header>
+        <div id="navigator-wrapper">
+          <p>w - home  /  a - visualizer one  /  d - visualizer two  /  s - help</p>
+        </div>
+      </header>
     </div>
-  </div>
 
-  <footer>
-    <div id="social-link-wrapper">
-      <a id="raneem-txt" href="https://www.instagram.com/raneemmb" target="_blank">raneem</a>
-      <a id="vihan-txt" href="https://www.instagram.com/codeart.universal" target="_blank">vihan</a>
+    <footer>
+      <div id="social-link-wrapper">
+        <a id="raneem-txt" href="https://www.instagram.com/raneemmb" target="_blank">raneem</a>
+        <a id="vihan-txt" href="https://www.instagram.com/codeart.universal" target="_blank">vihan</a>
+      </div>
+    </footer>
+
+    <div class="loader-wrapper">
+      <h5 id="progress-text">Loading...</h5>
+      <div id="progress-bar"></div>
+      <span class="loader"><span class="loader-inner"></span></span>
     </div>
-  </footer>
 
-  <div class="loader-wrapper">
-    <h5 id="progress-text">Loading...</h5>
-    <div id="progress-bar"></div>
-    <span class="loader"><span class="loader-inner"></span></span>
-  </div>
+    <script>
+        $(window).on("load", function(){
+            setTimeout(function(){
+                $(".loader-wrapper").fadeOut("slow");
+            }, 3000)
+        })
+    </script>
 
-  <script>
-      $(window).on("load", function(){
-          setTimeout(function(){
-              $(".loader-wrapper").fadeOut("slow");
-          }, 3000)
-      })
-  </script>
+    <script src="assets/scripts/navigator.js"></script>
 
-  <script src="assets/scripts/navigator.js"></script>
+    <!-- Bootstrap JS bundle v5.x -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-  <!-- Bootstrap JS bundle v5.x -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

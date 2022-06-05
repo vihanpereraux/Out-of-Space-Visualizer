@@ -66,6 +66,7 @@ function calmMind(){
   for (let i = 0; i < windowHeight; i++) {
     if (y < 500){
       noFill();
+
       let bezierWeight = localStorage.getItem("bezierWeight");
       strokeWeight(bezierWeight);
       smooth();
@@ -90,43 +91,90 @@ function calmMind(){
 function disturbedMind(){
   y = y +1;
   for (let i = 0; i < windowHeight; i++) {
-    if (y < 500){
-      noFill();
-      strokeWeight(2);
-      smooth();
-      if (i%2 == 0){
-        beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
-        stroke(beziarHighFrequencyColor);
-        //bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
-        bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
-        // bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
+      if (y < 500){
+            noFill();
+
+            let disturbedBezierWeight = localStorage.getItem("disturbedBezierWeight");
+            strokeWeight(disturbedBezierWeight);
+            strokeWeight(2);
+            smooth();
+          
+          if (i%2 == 0){
+              beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
+              stroke(beziarHighFrequencyColor);
+
+              let bezierType = localStorage.getItem("bezierType");
+
+              if(bezierType == "option one"){
+                bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
+              }
+
+              if(bezierType == "option two"){
+                bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
+              }
+              
+              if(bezierType == "option three"){
+                bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
+              }
+          }
+          else{
+              let bezierAmountCheck = document.getElementById("bezierAmountCheck");
+
+              if(bezierAmountCheck.checked == true){
+                  beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
+                  stroke(beziarHighFrequencyColor);
+                  
+                  let bezierType = localStorage.getItem("bezierType");
+
+                  if(bezierType == "option one"){
+                    bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
+                  }
+
+                  if(bezierType == "option two"){
+                    bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
+                  }
+                  
+                  if(bezierType == "option three"){
+                    bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
+                  }
+              }
+          }
       }
       else{
-        beziarHighFrequencyColor = color(localStorage.getItem("beziarHighFrequencyColor"));
-        stroke(beziarHighFrequencyColor);
-        // bezier(0, i*disturbedLeftGap, random(disturbedFirstBend, disturbedFirstBend+50), random(i*disturbedFirstPointGap+y, (i*disturbedFirstPointGap+y+70)), random(disturbedSecondBend, disturbedSecondBend+50), random(i*disturbedSecondPointGap-y, (i*disturbedSecondPointGap-y+70)), windowWidth, i*disturbedRightGap);
-        // bezier(0, random(i*disturbedLeftGap), random(disturbedFirstBend), i*disturbedFirstPointGap+y, random(disturbedSecondBend, disturbedSecondBend-100), i*disturbedSecondPointGap-y, windowWidth, random(i*disturbedRightGap));
-        // bezier(0, i*disturbedLeftGap, (disturbedFirstBend), i*disturbedFirstPointGap+y, (disturbedSecondBend), i*disturbedSecondPointGap-y, windowWidth, i*disturbedRightGap);
-      }
-    }
-    else{
-      y = -500;
-    } 
+          y = -500;
+      } 
   } 
 }
 
 
 function keyPressed(){
-  // p to play music
-  if(keyCode === 80){
-    sound.play();
-  }
-  // m to stop music
-  if(keyCode === 77){
-    sound.stop();
-  }
-  // r to reset all
-  if(keyCode === 82){
-    location.reload();
-  }
+    // p to play music
+    if(keyCode === 80){
+      sound.play();
+    }
+    // m to stop music
+    if(keyCode === 77){
+      sound.stop();
+    }
+    // r to reset all
+    if(keyCode === 82){
+      location.reload();
+    }
+
+    // w for home
+    if (keyCode === 87) {
+      location.href = "https://vihanpereraux.github.io/Out-of-Space-Visualizer/";   
+    }
+    //  a for viz one
+    if (keyCode === 65){
+        location.href = "https://vihanpereraux.github.io/Out-of-Space-Visualizer/visualizer_one.html";
+    }
+    //  d for viz two
+    if (keyCode === 68){
+        location.href = "https://vihanpereraux.github.io/Out-of-Space-Visualizer/visualizer_two.html";
+    }
+    //  s for viz one
+    if (keyCode === 83){
+        location.href = "https://vihanpereraux.github.io/Out-of-Space-Visualizer/help.html";
+    }
 }

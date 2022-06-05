@@ -3,6 +3,15 @@ body{
     font-family: "Montserrat" !important;
 }
 
+header{
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    font-size: 15px;
+}
+
 #home-content{
     position: absolute;
     transform: translate(-50%, -50%);

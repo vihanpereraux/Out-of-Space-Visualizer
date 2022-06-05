@@ -40,6 +40,9 @@ function updateBezierPanel(){
 
     let disturbedBezierWeight = localStorage.getItem("disturbedBezierWeight");
     document.getElementById("disturbedBezierWeight").value = disturbedBezierWeight;
+
+    let bezierType = localStorage.getItem("bezierType");
+    document.getElementById("bezierType").value = bezierType;
 }
 
 
@@ -85,4 +88,7 @@ function updateBezierPanelStorage(){
 
     let disturbedBezierWeight = document.getElementById("disturbedBezierWeight").value;
     localStorage.setItem("disturbedBezierWeight", disturbedBezierWeight);
+
+    let bezierType = document.getElementById("bezierType").value;
+    localStorage.setItem("bezierType", bezierType);
 }
