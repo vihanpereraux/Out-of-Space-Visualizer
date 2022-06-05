@@ -23,6 +23,7 @@ canvas {
 .custom-accordion-header h4{
   color: white;
   font-weight: 700;
+  font-size: 23px !important;
   margin-top: 10px;
   text-decoration: none !important;
   text-transform: uppercase;
@@ -37,6 +38,7 @@ h5{
   box-shadow: none !important;
 }
 .controllers-accordion-body{
+  padding-bottom: 50px !important;
   background-color: #101010;
 }
 

@@ -69,3 +69,10 @@ body {
     }
 }
 /* end of loading animation */
+
+
+@media screen and (max-width: 1024px) {
+    body {
+      display: none !important;
+    }
+  }
