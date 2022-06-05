@@ -12,14 +12,6 @@
     src: url(../fonts/digital7.ttf);
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    background: black;
-    overflow-x: hidden;
-    font-family: Montserrat !important;
-}
-
 body::-webkit-scrollbar {
     display: none !important;
 }

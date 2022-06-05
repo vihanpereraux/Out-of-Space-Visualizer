@@ -1,6 +1,9 @@
-body{
+html, body {
+  margin: 0;
+  padding: 0;
   background: black;
   overflow-x: hidden;
+  font-family: Montserrat !important;
 }
 
 canvas {
