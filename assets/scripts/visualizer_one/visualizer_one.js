@@ -280,8 +280,10 @@ function keyPressed(){
     }
 }
 
+setTimeout(function() {
+    window.setInterval(function() {
+        resetCanvas();
+    }, 260);
+}, 3000)
 
-window.setInterval(function() {
-    resetCanvas();
-}, 260);
 
