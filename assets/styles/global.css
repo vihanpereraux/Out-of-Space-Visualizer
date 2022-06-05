@@ -25,10 +25,11 @@ body {
 .loader-wrapper{
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: black;
+    overflow: hidden;
 }
 
 #progress-bar{
@@ -49,6 +50,9 @@ body {
     left: 50%;
     top: 45%;
     color: white;
+    font-family: "Montserrat" !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
 }
   
 @keyframes loader {

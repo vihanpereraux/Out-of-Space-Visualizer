@@ -6,7 +6,7 @@ body{
 #home-content{
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 46%;
+    top: 45%;
     left: 50%;
     width: 100%;
 }
@@ -15,7 +15,7 @@ h2{
     text-align: center;
     color: white;
     text-transform: uppercase;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     margin-bottom: 60px !important;
 }
 
@@ -57,7 +57,13 @@ footer{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    padding-left: 0px !important;
+    transition: padding-left .1s linear;
 }
+#raneem-txt:hover{
+    padding-left: 3px !important;
+}
+
 #vihan-txt{
     position: absolute;
     right: 3%;
@@ -65,4 +71,9 @@ footer{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    padding-right: 0px !important;
+    transition: padding-right .1s linear;
+}
+#vihan-txt:hover{
+    padding-right: 3px !important;
 }

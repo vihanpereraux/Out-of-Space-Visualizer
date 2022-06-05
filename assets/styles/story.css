@@ -1,0 +1,32 @@
+body{
+    background-color: #101010 !important;
+    color: white !important;
+    font-family: Montserrat !important;
+    padding-bottom: 40px !important;
+}
+
+#ghgh{
+    /* color: red; */
+}
+
+h3{
+    letter-spacing: 2.5px;
+    font-size: 23px !important;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    margin-top: 60px !important;
+    text-align: left;
+}
+
+hr{
+    background-color: white !important;
+    opacity: .6 !important;
+}
+
+p{
+    line-height: 38px !important;
+    font-size: 17px !important;
+    margin-top: 20px !important;
+    font-weight: 400;
+    text-align: left;
+}
